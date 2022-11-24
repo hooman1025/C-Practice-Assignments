@@ -1,4 +1,4 @@
-#include "function.hpp"
+#include "Function.hpp"
 #include <iostream>
 
 int64_t Function::input_number(void) {

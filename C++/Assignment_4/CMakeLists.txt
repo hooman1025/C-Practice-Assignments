@@ -1,6 +1,6 @@
 cmake_minimum_required( VERSION 3.14 )
 
-project( Assignment 4 )
+project( Assignment_4 )
 
 add_executable( program src/main.cpp src/Function.cpp )
 

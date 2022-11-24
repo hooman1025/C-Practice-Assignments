@@ -1,4 +1,4 @@
-#include "../include/PrimeNumbers.hpp"
+#include "PrimeNumbers.hpp"
 #include <iostream>
 
 int main(int argc, char* argv[]) {

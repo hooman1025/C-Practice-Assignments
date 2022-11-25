@@ -4,18 +4,17 @@
 #include <thread>
 #include <vector>
 #include <memory>
-#include <cmath>
-#include <cstring>
-#include <cstdint>
+#include <regex>
 
 void PrimeNumbers::primeNumber(const char* inputNumber, int* presult) {
-    int64_t result = 0;
+    int result = 0;
     int64_t number = atol(inputNumber);
 
-    std::unique_ptr<bool[]> prime(new bool[number + 1]());
+    //std::unique_ptr<bool[]> prime(new bool[number + 1]());
+    bool* prime = new bool[number + 1]();
     prime[0] = prime[1] = true;
-    
-    for (int64_t i = 2; i <= sqrt(number); ++i) {
+
+    for (int64_t i = 2; i * i <= number; ++i) {
         if (false == prime[i]) {
             for(int64_t j = i * i; j <= number; j += i) {
                 prime[j] = true;
@@ -30,6 +29,7 @@ void PrimeNumbers::primeNumber(const char* inputNumber, int* presult) {
     }
 
     *presult = result;
+    delete[] prime;
 }
 
 void PrimeNumbers::primeThread(const int argc, char* argv[]) {
@@ -38,49 +38,47 @@ void PrimeNumbers::primeThread(const int argc, char* argv[]) {
     std::ofstream log2("log2.txt");
     int result[argc] = {0};
     
-    for (int i = 0; i < argc; ++i) {
-        workers.push_back(std::thread(PrimeNumbers::primeNumber, argv[i], &result[i]));
+    for (int index = 1; index < argc; ++index) {
+        workers.push_back(std::thread(PrimeNumbers::primeNumber, argv[index], &result[THREADNUMBER]));
     }
 
-    for (int i = 0; i < argc; ++i) {
-        workers[i].join();
+    for (int index = 1; index < argc; ++index) {
+        workers[THREADNUMBER].join();
     }
 
-    for (int i = 1; i < argc; ++i) {
+    for (int index = 1; index < argc; ++index) {
         if (1 == LOGNUMBER) {
             if (true == log1.is_open()) {
-                log1 << "thread[" << i << "] finished. prime numbers between 0 and " << argv[i] << ": " << result[i] << '\n';
+                log1 << "thread[" << index << "] finished. prime numbers between 0 and " << argv[index] << ": " << result[THREADNUMBER] << '\n';
             }
         } else {
             if (true == log2.is_open()) {
-                log2 << "thread[" << i << "] finished. prime numbers between 0 and " << argv[i] << ": " << result[i] << '\n';
+                log2 << "thread[" << index << "] finished. prime numbers between 0 and " << argv[index] << ": " << result[THREADNUMBER] << '\n';
             }
         }
     }
 }
 
 bool PrimeNumbers::isValidNumber(const int argc, char* argv[]) {
-    size_t str_size;
+    int str_size;
     bool result = true;
 
-    if (1 != argc) {
+    if ((int)Arguement::NOARGUEMENT != argc) {
         for (int i = 1; i < argc; ++i) {
-            str_size = strlen(argv[i]);
-            if (10 < str_size) {
+            std::string str(argv[i]);
+            str_size = str.size();
+
+            if (false == std::regex_match(str, std::regex("[0-9]+"))) {
                 result = false;
                 break;
             }
 
-            for (int j = 0; j < str_size; ++j) {
-                if ((' ' == argv[i][j]) || (('0' > argv[i][j]) || ('9' < argv[i][j]))) {
-                    result = false;
-                    break;
-                }
-            }
-
-            if (false == result) {
+            if (MAXNUMBER == stol(str) && ((int)Arguement::MINIMUNARGUEMENT == argc)) {
+                continue;
+            } else if (MAXNUMBER / 10 < stol(str) || ((int)Arguement::MAXARGUEMENT < argc)) {
+                result = false;
                 break;
-            }
+            } 
         }
     } else {
         result = false;

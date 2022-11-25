@@ -1,7 +1,15 @@
 #ifndef __PRIMENUMBERS_HPP__
 #define __PRIMENUMBERS_HPP__
 
-#define LOGNUMBER i % 2
+#define LOGNUMBER index % 2
+#define THREADNUMBER index - 1
+#define MAXNUMBER 10000000000
+
+enum class Arguement {
+    NOARGUEMENT = 1,
+    MINIMUNARGUEMENT,
+    MAXARGUEMENT = 11
+};
 
 enum class ExitStatus {
     SUCCESS,

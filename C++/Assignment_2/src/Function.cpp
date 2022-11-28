@@ -10,7 +10,7 @@ std::string Function::input_number(void) {
     return input_num;
 }
 
-int Function::decimal(const std::string &input_number) {
+int Function::decimal(const std::string& input_number) {
     std::vector<int> bin_num;
     uint64_t number = stoull(input_number);
     int element = 0;
@@ -30,7 +30,7 @@ int Function::decimal(const std::string &input_number) {
     return dec_num;
 }
 
-std::string Function::hexadecimal(const std::string &input_number) {
+std::string Function::hexadecimal(const std::string& input_number) {
     std::vector<char> hex_value = {'0', '1', '2', '3',
                                    '4', '5', '6', '7',
                                    '8', '9', 'A', 'B',
@@ -59,7 +59,7 @@ std::string Function::hexadecimal(const std::string &input_number) {
     return hex_num;
 }
 
-bool Function::is_valid_number(const std::string &number) {
+bool Function::is_valid_number(const std::string& number) {
     int length = number.size();
     bool result = true;
 

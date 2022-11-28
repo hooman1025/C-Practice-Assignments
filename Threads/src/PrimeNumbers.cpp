@@ -10,13 +10,12 @@ void PrimeNumbers::primeNumber(const char* inputNumber, int* presult) {
     int result = 0;
     int64_t number = atol(inputNumber);
 
-    //std::unique_ptr<bool[]> prime(new bool[number + 1]());
     bool* prime = new bool[number + 1]();
     prime[0] = prime[1] = true;
 
     for (int64_t i = 2; i * i <= number; ++i) {
         if (false == prime[i]) {
-            for(int64_t j = i * i; j <= number; j += i) {
+            for (int64_t j = i * i; j <= number; j += i) {
                 prime[j] = true;
             }
         }

@@ -35,12 +35,7 @@ public:
     void printNode(void);
     void clearList(void);
 };
-/*
-template <class T>
-DoubleLinkedList<T>::DoubleLinkedList() {
-    head = nullptr;
-}
-*/
+
 template <class T>
 DoubleLinkedList<T>::~DoubleLinkedList() {
     Node<T>* temp = head;

@@ -11,7 +11,7 @@ MyString::MyString() {
     pstr = move(newPstr);
 }
 
-MyString::MyString(const char &c) {
+MyString::MyString(const char& c) {
     length = 2;
     std::unique_ptr<char[]> newPstr(new char[length]());
 
@@ -21,7 +21,7 @@ MyString::MyString(const char &c) {
     pstr = move(newPstr);
 }
 
-MyString::MyString(const char *inputPstr) {
+MyString::MyString(const char* inputPstr) {
     length = myStrlen(inputPstr);
     std::unique_ptr<char[]> newPstr(new char[length]());
 
@@ -33,7 +33,7 @@ MyString::MyString(const char *inputPstr) {
     pstr = move(newPstr);
 }
 
-MyString::MyString(const MyString &inputPstr) {
+MyString::MyString(const MyString& inputPstr) {
     length = myStrlen(inputPstr.pstr.get());
     std::unique_ptr<char[]> newPstr(new char[length]());
 
@@ -52,7 +52,7 @@ char* MyString::getStr(void) const {
     return pstr.get();
 }
 
-void MyString::setStr(const MyString &inputPstr) {
+void MyString::setStr(const MyString& inputPstr) {
     length = myStrlen(inputPstr.pstr.get());
     std::unique_ptr<char[]> newPstr(new char[length]());
 
@@ -92,13 +92,13 @@ const char* MyString::end(void) const {
     return &pstr[length];
 }
 
-std::ostream &operator<<(std::ostream &out, const MyString &inputPstr) {
+std::ostream& operator<<(std::ostream& out, const MyString& inputPstr) {
     out << inputPstr.pstr.get();
 
     return out;
 }
 
-std::istream &operator>>(std::istream &in, MyString &inputPstr) {
+std::istream& operator>>(std::istream& in, MyString& inputPstr) {
     in >> inputPstr.pstr.get();
 
     inputPstr.length = myStrlen(inputPstr.pstr.get());
@@ -106,7 +106,7 @@ std::istream &operator>>(std::istream &in, MyString &inputPstr) {
     return in;
 }
 
-MyString &MyString::operator=(const MyString &inputPstr) {
+MyString& MyString::operator=(const MyString& inputPstr) {
     length = myStrlen(inputPstr.pstr.get());
     std::unique_ptr<char[]> newPstr(new char[length]());
     
@@ -121,7 +121,7 @@ MyString &MyString::operator=(const MyString &inputPstr) {
     return *this;
 }
 
-MyString &MyString::operator=(const char *inputPstr) {
+MyString& MyString::operator=(const char* inputPstr) {
     length = myStrlen(inputPstr);
     std::unique_ptr<char[]> newPstr(new char[length]());
 
@@ -136,7 +136,7 @@ MyString &MyString::operator=(const char *inputPstr) {
     return *this;
 }
 
-MyString &MyString::operator+(const MyString &inputPstr) {
+MyString& MyString::operator+(const MyString& inputPstr) {
     size_t tmpLength = length + inputPstr.length;
     std::unique_ptr<char[]> newPstr(new char[tmpLength]());
 
@@ -156,7 +156,7 @@ MyString &MyString::operator+(const MyString &inputPstr) {
     return *this;
 }
 
-MyString &MyString::operator+(const char *inputPstr) {
+MyString& MyString::operator+(const char* inputPstr) {
     size_t tmpLength = length + myStrlen(inputPstr);
     std::unique_ptr<char[]> newPstr(new char[tmpLength]());
 
@@ -176,7 +176,7 @@ MyString &MyString::operator+(const char *inputPstr) {
     return *this;
 }
 
-MyString &MyString::operator+=(const MyString &inputPstr) {
+MyString& MyString::operator+=(const MyString& inputPstr) {
     size_t tmpLength = length + inputPstr.length;
     std::unique_ptr<char[]> newPstr(new char[tmpLength]());
 
@@ -196,7 +196,7 @@ MyString &MyString::operator+=(const MyString &inputPstr) {
     return *this;
 }
 
-MyString &MyString::operator+=(const char *inputPstr) {
+MyString& MyString::operator+=(const char* inputPstr) {
     size_t tmpLength = length + myStrlen(inputPstr);
     std::unique_ptr<char[]> newPstr(new char[tmpLength]());
 
@@ -216,19 +216,19 @@ MyString &MyString::operator+=(const char *inputPstr) {
     return *this;
 }
 
-bool MyString::operator==(const MyString &inputPstr) {
+bool MyString::operator==(const MyString& inputPstr) {
     return (0 == compare(inputPstr)) ? true : false;
 }
 
-bool MyString::operator==(const char *inputPstr) {
+bool MyString::operator==(const char* inputPstr) {
     return (0 == compare(inputPstr)) ? true : false;
 }
 
-bool MyString::operator!=(const MyString &inputPstr) {
+bool MyString::operator!=(const MyString& inputPstr) {
     return (0 == compare(inputPstr)) ? false : true;
 }
 
-bool MyString::operator!=(const char *inputPstr) {
+bool MyString::operator!=(const char* inputPstr) {
     return (0 == compare(inputPstr)) ? false : true;
 }
 
@@ -255,7 +255,7 @@ void MyString::clear(void) {
     pstr = move(newPstr);
 }
 
-void MyString::insert(const size_t pos, const MyString &inputPstr) {
+void MyString::insert(const size_t pos, const MyString& inputPstr) {
     size_t inputLength = myStrlen(inputPstr.pstr.get());
     size_t tmpLength = length + inputLength;
 
@@ -278,7 +278,7 @@ void MyString::insert(const size_t pos, const MyString &inputPstr) {
     }
 }
 
-void MyString::insert(const size_t pos, const char *inputPstr) {
+void MyString::insert(const size_t pos, const char* inputPstr) {
     size_t inputLength = myStrlen(inputPstr);
     size_t tmpLength = length + inputLength;
 
@@ -301,7 +301,7 @@ void MyString::insert(const size_t pos, const char *inputPstr) {
     }
 }
 
-void MyString::insert(const size_t pos, const char &c) {
+void MyString::insert(const size_t pos, const char& c) {
     size_t inputLength = 1;
     size_t tmpLength = length + inputLength;
 
@@ -344,7 +344,7 @@ const char* MyString::reverse(void) {
     return pstr.get();
 }
 
-void MyString::append(const MyString &inputPstr) {
+void MyString::append(const MyString& inputPstr) {
     size_t tmpLength = length + inputPstr.length;
     std::unique_ptr<char[]> newPstr(new char[tmpLength]());
 
@@ -362,7 +362,7 @@ void MyString::append(const MyString &inputPstr) {
     pstr = move(newPstr);
 }
 
-void MyString::append(const char *inputPstr) {
+void MyString::append(const char* inputPstr) {
     size_t tmpLength = length + myStrlen(inputPstr);
     std::unique_ptr<char[]> newPstr(new char[tmpLength]());
 
@@ -380,7 +380,7 @@ void MyString::append(const char *inputPstr) {
     pstr = move(newPstr);
 }
 
-const size_t MyString::find(const MyString &inputPstr) {
+const size_t MyString::find(const MyString& inputPstr) {
     size_t pos = length;
 
     for (int index = 0; index < length; ++index) {
@@ -395,7 +395,7 @@ const size_t MyString::find(const MyString &inputPstr) {
     return pos;
 }
 
-const size_t MyString::find(const char *inputPstr) {
+const size_t MyString::find(const char* inputPstr) {
     size_t inputLength = myStrlen(inputPstr);
     size_t pos = length;
 
@@ -411,7 +411,7 @@ const size_t MyString::find(const char *inputPstr) {
     return pos;
 }
 
-const size_t MyString::find(const char &c) {
+const size_t MyString::find(const char& c) {
     size_t pos = length;
 
     for (int index = 0; index < length; ++index) {
@@ -426,34 +426,34 @@ const size_t MyString::find(const char &c) {
     return pos;
 }
 
-void MyString::replace(const size_t pos, const size_t len, const MyString &inputPstr) {
+void MyString::replace(const size_t pos, const size_t len, const MyString& inputPstr) {
     erase(pos, len);
     insert(pos, inputPstr.pstr.get());
 }
 
-void MyString::replace(const size_t pos, const size_t len, const MyString &inputPstr, const size_t strLen, const size_t strPos) {
+void MyString::replace(const size_t pos, const size_t len, const MyString& inputPstr, const size_t strLen, const size_t strPos) {
     erase(pos, len);
     insert(pos, inputPstr.substr(strPos, strLen));
 }
 
-void MyString::replace(const size_t pos, const size_t len, const char *inputPstr) {
+void MyString::replace(const size_t pos, const size_t len, const char* inputPstr) {
     erase(pos, len);
     insert(pos, inputPstr);
 }
 
-void MyString::replace(const size_t pos, const size_t len, const char *inputPstr, const size_t strLen, const size_t strPos) {
+void MyString::replace(const size_t pos, const size_t len, const char* inputPstr, const size_t strLen, const size_t strPos) {
     MyString str = inputPstr;
 
     erase(pos, len);
     insert(pos, str.substr(strPos, strLen));
 }
 
-void MyString::replace(const size_t pos, const size_t len, const size_t inputCnt, const char &c) {
+void MyString::replace(const size_t pos, const size_t len, const size_t inputCnt, const char& c) {
     size_t cnt = 0;
 
     erase(pos, len);
 
-    while(inputCnt > cnt) {
+    while (inputCnt > cnt) {
         insert(pos, c);
         ++cnt;
     }
@@ -498,7 +498,7 @@ void MyString::erase(const char* start, const char* end) {
     }
 }
 
-const int MyString::compare(const MyString &inputPstr) {
+const int MyString::compare(const MyString& inputPstr) {
     size_t firstLength = myStrlen(pstr.get());
     size_t secondLength = myStrlen(inputPstr.pstr.get());
     int result = 0;
@@ -524,7 +524,7 @@ const int MyString::compare(const MyString &inputPstr) {
     return result;
 }
 
-const int MyString::compare(const char *inputPstr) {
+const int MyString::compare(const char* inputPstr) {
     size_t firstLength = myStrlen(pstr.get());
     size_t secondLength = myStrlen(inputPstr);
     int result = 0;
@@ -550,7 +550,7 @@ const int MyString::compare(const char *inputPstr) {
     return result;
 }
 
-const int MyString::compare(size_t pos, size_t len, const MyString &inputPstr) {
+const int MyString::compare(size_t pos, size_t len, const MyString& inputPstr) {
     size_t firstLength = myStrlen(pstr.get());
     size_t secondLength = myStrlen(inputPstr.pstr.get());
     int result = 0;
@@ -568,7 +568,7 @@ const int MyString::compare(size_t pos, size_t len, const MyString &inputPstr) {
     return result;
 }
 
-const int MyString::compare(size_t pos, size_t len, const char *inputPstr) {
+const int MyString::compare(size_t pos, size_t len, const char* inputPstr) {
     size_t firstLength = myStrlen(pstr.get());
     size_t secondLength = myStrlen(inputPstr);
     int result = 0;
@@ -601,11 +601,11 @@ const MyString MyString::substr(const size_t pos, const size_t len) const {
     return newStr.pstr.get();
 }
 
-const char* MyString::assign(const size_t len, const char &c) {
+const char* MyString::assign(const size_t len, const char& c) {
     std::unique_ptr<char[]> newPstr(new char[length]());
     size_t cnt = 0;
 
-    while(len > cnt) {
+    while (len > cnt) {
         newPstr[cnt] = c;
         ++cnt;
     }
@@ -616,7 +616,7 @@ const char* MyString::assign(const size_t len, const char &c) {
     return pstr.get();
 }
 
-const char* MyString::assign(const MyString &inputPstr, const size_t len, const size_t pos) {
+const char* MyString::assign(const MyString& inputPstr, const size_t len, const size_t pos) {
     MyString str = inputPstr.substr(pos, len);
 
     pstr = move(str.pstr);
@@ -625,7 +625,7 @@ const char* MyString::assign(const MyString &inputPstr, const size_t len, const 
     return pstr.get();
 }
 
-const char* MyString::assign(const char *inputPstr, const size_t len, const size_t pos) {
+const char* MyString::assign(const char* inputPstr, const size_t len, const size_t pos) {
     MyString str = inputPstr;
 
     str = str.substr(pos, len);
@@ -635,7 +635,7 @@ const char* MyString::assign(const char *inputPstr, const size_t len, const size
     return pstr.get();
 }
 
-const size_t MyString::copy(MyString &inputPstr, size_t len, size_t pos) {
+const size_t MyString::copy(MyString& inputPstr, size_t len, size_t pos) {
     size_t inputLength = (npos == len) ? length : len;
 
     inputPstr.clear();
@@ -660,21 +660,21 @@ const size_t MyString::copy(char* inputPstr, size_t len, size_t pos) {
     return inputLength;
 }
 
-void MyString::mySwap(MyString &inputPstr) {
+void MyString::mySwap(MyString& inputPstr) {
     pstr.swap(inputPstr.pstr);
     length = myStrlen(pstr.get());
     
     inputPstr.length = myStrlen(inputPstr.pstr.get());
 }
 
-void MyString::myMove(MyString &inputPstr) {
+void MyString::myMove(MyString& inputPstr) {
     pstr = move(inputPstr.pstr);
     length = myStrlen(pstr.get());
 
     inputPstr.clear();
 }
 
-const int myStrlen(const char *inputPstr) {
+const int myStrlen(const char* inputPstr) {
     int cnt = 0;
     int index = 0;
 

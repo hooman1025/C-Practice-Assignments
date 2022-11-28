@@ -17,7 +17,6 @@ private:
 
 public:
     Node<T>() : rlink(nullptr) {}
-    //Node<T>(T inputData) : data(inputData) {}
 
     friend DoubleLinkedList<T>;
 };
@@ -41,22 +40,7 @@ public:
     void printNode(void);
     void clearList(void);
 };
-/*
-template <class T>
-DoubleLinkedList<T>::DoubleLinkedList() {
-    head = nullptr;
-}
 
-template <class T>
-DoubleLinkedList<T>::~DoubleLinkedList() {
-    auto temp = head;
-    while (nullptr != head) {
-        temp = head->rlink;
-        head.reset();
-        head = temp;
-    }
-}
-*/
 template <class T>
 void DoubleLinkedList<T>::createNode(const T& data) {
     std::shared_ptr<Node<T>> newNode = std::make_shared<Node<T>>();

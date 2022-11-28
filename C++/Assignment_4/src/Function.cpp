@@ -76,8 +76,7 @@ bool Function::isValidBinary(const std::string& inputString) {
 
 OperatorsNumber Function::convertOperator(std::string& inputOperator) {
     OperatorsNumber result = OperatorsNumber::ERROR;
-    const std::map<std::string, OperatorsNumber> availableOperators = 
-    {
+    const std::map<std::string, OperatorsNumber> availableOperators = {
         { "and", OperatorsNumber::AND },
         { "or", OperatorsNumber::OR },
         { "xor", OperatorsNumber::XOR },

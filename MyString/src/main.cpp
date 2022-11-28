@@ -2,7 +2,6 @@
 #include <iostream>
 
 int main(void) {
-    
     std::cout << "Test 1. constructor ----------------------------------------------------" << std::endl;
     MyString str1("Hello World!");
     MyString str2('a');
@@ -161,23 +160,23 @@ int main(void) {
     std::cout << "Test 21. operators -----------------------------------------------------" << std::endl;
     str1.clear();
     str2.clear();
-    //operator>>, <<
+
     std::cout << "input str1 : ";
     std::cin >> str1;
     std::cout << "str1 operator>>, << : " << str1 << std::endl;
-    //operator=
+
     str2 = str1;
     std::cout << "str2 operator= : " << str2 << std::endl;
-    //operator+=
+
     str1 += str2;
     std::cout << "str1 operator+= : " << str1 << std::endl;
-    //operator==
+
     if (str1 == str2) {
         std::cout << "str1 == str2 is true." << std::endl;
     } else {
         std::cout << "str1 == str2 is false." << std::endl;
     }
-    //operator!=
+
     if (str1 != str2) {
         std::cout << "str1 != str2 is true." << std::endl;
     } else {

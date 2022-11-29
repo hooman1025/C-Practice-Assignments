@@ -48,11 +48,13 @@ void PrimeNumbers::primeThread(const int argc, char* argv[]) {
     for (int index = 1; index < argc; ++index) {
         if (1 == LOGNUMBER) {
             if (true == log1.is_open()) {
-                log1 << "thread[" << index << "] finished. prime numbers between 0 and " << argv[index] << ": " << result[THREADNUMBER] << '\n';
+                log1 << "thread[" << index << "] finished. prime numbers between 0 and " 
+                     << argv[index] << ": " << result[THREADNUMBER] << '\n';
             }
         } else {
             if (true == log2.is_open()) {
-                log2 << "thread[" << index << "] finished. prime numbers between 0 and " << argv[index] << ": " << result[THREADNUMBER] << '\n';
+                log2 << "thread[" << index << "] finished. prime numbers between 0 and " 
+                     << argv[index] << ": " << result[THREADNUMBER] << '\n';
             }
         }
     }

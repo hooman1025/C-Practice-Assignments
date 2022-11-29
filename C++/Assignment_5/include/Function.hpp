@@ -10,4 +10,4 @@ public:
     static bool isValidNumber(const std::string& number);
 };
 
-#endif //__FUNCTION_HPP__
+#endif  // __FUNCTION_HPP__

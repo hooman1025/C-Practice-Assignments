@@ -223,4 +223,4 @@ void DoubleLinkedList<T>::clearList(void) {
     }
 }
 
-#endif //__DOUBLELINKEDLIST_HPP__
+#endif  // __DOUBLELINKEDLIST_HPP__

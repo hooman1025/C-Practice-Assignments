@@ -19,4 +19,4 @@ public:
     static bool isValidFill(const std::string& inputFill);
 };
 
-#endif //__FUNCTION_HPP__
+#endif  // __FUNCTION_HPP__

@@ -13,8 +13,8 @@ public:
     static const size_t npos = -1;
 
     MyString();
-    MyString(const char& c);
-    MyString(const char* inputPstr);
+    explicit MyString(const char& c);
+    explicit MyString(const char* inputPstr);
     MyString(const MyString& inputPstr);
     ~MyString();
 
@@ -92,4 +92,4 @@ public:
 
 const int myStrlen(const char* inputPstr);
 
-#endif //__MYSTRING_HPP__
+#endif  // __MYSTRING_HPP__

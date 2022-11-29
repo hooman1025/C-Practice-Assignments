@@ -23,4 +23,4 @@ public:
     static bool isValidNumber(const int argc, char* argv[]);
 };
 
-#endif //__PRIMENUMBERS_HPP__
+#endif  // __PRIMENUMBERS_HPP__

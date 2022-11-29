@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <memory>
-#include <functional>
 
 template <class T> class Node;
 template <class T> class DoubleLinkedList;
@@ -212,4 +211,4 @@ void DoubleLinkedList<T>::clearList(void) {
     }
 }
 
-#endif //__DOUBLELINKEDLIST_HPP__
+#endif  // __DOUBLELINKEDLIST_HPP__

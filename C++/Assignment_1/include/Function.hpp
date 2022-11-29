@@ -11,4 +11,4 @@ public:
     static bool is_valid_number(const int64_t num);
 };
 
-#endif //__FUNCTION_HPP__
+#endif  // __FUNCTION_HPP__

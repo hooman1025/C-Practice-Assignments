@@ -12,7 +12,8 @@ std::string Function::inputString(void) {
     return inputString;
 }
 
-std::string Function::binaryCalculator(const std::string& inputFirstBinary, const std::string& inputSecondBinary, const OperatorsNumber inputOperatorFlag) {
+std::string Function::binaryCalculator(const std::string& inputFirstBinary, 
+                                       const std::string& inputSecondBinary, const OperatorsNumber inputOperatorFlag) {
     std::vector<char> firstBinary;
     std::vector<char> secondBinary;
 
@@ -96,7 +97,8 @@ OperatorsNumber Function::convertOperator(std::string& inputOperator) {
     return result;
 }
 
-void Function::pushBackBinary(const std::string& inputFirstBinary, std::vector<char>& firstBinary, const std::string& inputSecondBinary, std::vector<char>& secondBinary, size_t pushSize) {
+void Function::pushBackBinary(const std::string& inputFirstBinary, std::vector<char>& firstBinary, 
+                              const std::string& inputSecondBinary, std::vector<char>& secondBinary, size_t pushSize) {
     firstBinary.reserve(20);
     secondBinary.reserve(20);
 
